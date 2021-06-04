@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Patterns\Creational\" />
     <Folder Include="Patterns\Structural\" />
   </ItemGroup>
 
