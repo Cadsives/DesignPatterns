@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Patterns\Behavioural\Observer\" />
     <Folder Include="Patterns\Creational\" />
-    <Folder Include="Patterns\Behavioural\" />
     <Folder Include="Patterns\Structural\" />
   </ItemGroup>
 
