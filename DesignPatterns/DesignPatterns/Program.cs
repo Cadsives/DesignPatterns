@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.Patterns.Behavioural.Observer.Observer1;
 using DesignPatterns.Patterns.Behavioural.Strategy.Strategy1;
+using DesignPatterns.Patterns.Creational.Factory.Factory1;
 using DesignPatterns.Patterns.Creational.Singleton;
 using DesignPatterns.Patterns.Creational.Singleton.Singleton1;
 using System;
@@ -13,7 +14,8 @@ namespace DesignPatterns
             //StrategyDemo1();
             //ObserverDemo1();
             //SingletonDemo1();
-            SingletonDemo2();
+            //SingletonDemo2();
+            FactoryDemo1();
             Console.ReadLine();
         }
 
@@ -83,5 +85,11 @@ namespace DesignPatterns
 
             Console.WriteLine(output);
         }     
+        static void FactoryDemo1()
+        {
+            BallGame theGame = new BallGame();
+            theGame.PlayGame("White");
+        }
+        
     }
 }
