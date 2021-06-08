@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Patterns.Behavioural.Observer.Observer1;
+﻿using DesignPatterns.Patterns.Behavioural.Command.Command1;
+using DesignPatterns.Patterns.Behavioural.Observer.Observer1;
 using DesignPatterns.Patterns.Behavioural.Strategy.Strategy1;
 using DesignPatterns.Patterns.Creational.Factory.Factory1;
 using DesignPatterns.Patterns.Creational.Singleton;
@@ -15,7 +16,8 @@ namespace DesignPatterns
             //ObserverDemo1();
             //SingletonDemo1();
             //SingletonDemo2();
-            FactoryDemo1();
+            //FactoryDemo1();
+            CommandDemo1();
             Console.ReadLine();
         }
 
@@ -90,6 +92,21 @@ namespace DesignPatterns
             BallGame theGame = new BallGame();
             theGame.PlayGame("White");
         }
-        
+        static void CommandDemo1()
+        {
+            Chef chef = new Chef();
+
+            Waitress theWaitress = new Waitress();
+
+            FoodOrder myStarter = new SoupOrder(chef);
+            FoodOrder myMain = new SteakOrder(chef);
+
+            theWaitress.TakeOrder(myStarter);
+            theWaitress.TakeOrder(myMain);
+
+            theWaitress.HaveABreak();
+
+            theWaitress.PopIntoKitchen();
+        }
     }
 }
