@@ -1,6 +1,7 @@
 ﻿using DesignPatterns.Patterns.Behavioural.Command.Command1;
 using DesignPatterns.Patterns.Behavioural.Observer.Observer1;
 using DesignPatterns.Patterns.Behavioural.Strategy.Strategy1;
+using DesignPatterns.Patterns.Creational.AbstractFactory.AbstractFactory1;
 using DesignPatterns.Patterns.Creational.Factory.Factory1;
 using DesignPatterns.Patterns.Creational.Singleton;
 using DesignPatterns.Patterns.Creational.Singleton.Singleton1;
@@ -20,8 +21,9 @@ namespace DesignPatterns
             //SingletonDemo2();
             //FactoryDemo1();
             //CommandDemo1();
-            DecoratorDemo1();
+            //DecoratorDemo1();
             //DecoratorDemo2();
+            AbstractFactoryDemo1();
             Console.ReadLine();
         }
 
@@ -128,6 +130,17 @@ namespace DesignPatterns
             Console.WriteLine("Ingredients: " + decoratedPizza.GetDescription());
 
             Console.WriteLine("Price: " + decoratedPizza.GetCost());
+        }
+        static void AbstractFactoryDemo1()
+        {
+            EnemyShipBuilding MakeUFOs = new UFOEnemyShipBuilding();
+
+            EnemyShip theGrunt = MakeUFOs.OrderTheShip("UFO");
+            Console.WriteLine(theGrunt.TheString() + "\n");
+
+            EnemyShip theBoss = MakeUFOs.OrderTheShip("UFO BOSS");
+            Console.WriteLine(theBoss.TheString() + "\n");
+        
         }
     }
 }
