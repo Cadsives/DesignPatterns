@@ -3,11 +3,12 @@ using DesignPatterns.Patterns.Behavioural.Observer.Observer1;
 using DesignPatterns.Patterns.Behavioural.Strategy.Strategy1;
 using DesignPatterns.Patterns.Creational.AbstractFactory.AbstractFactory1;
 using DesignPatterns.Patterns.Creational.Factory.Factory1;
-using DesignPatterns.Patterns.Creational.Singleton;
 using DesignPatterns.Patterns.Creational.Singleton.Singleton1;
+using DesignPatterns.Patterns.Creational.Singleton;
 using DesignPatterns.Patterns.Structural.Decorator.Decorator1;
 using DesignPatterns.Patterns.Structural.Decorator.Decorator2;
 using System;
+using DesignPatterns.Patterns.Creational.Builder;
 
 namespace DesignPatterns
 {
@@ -23,7 +24,8 @@ namespace DesignPatterns
             //CommandDemo1();
             //DecoratorDemo1();
             //DecoratorDemo2();
-            AbstractFactoryDemo1();
+            //AbstractFactoryDemo1();
+            BuilderDemo1();
             Console.ReadLine();
         }
 
@@ -141,6 +143,22 @@ namespace DesignPatterns
             EnemyShip theBoss = MakeUFOs.OrderTheShip("UFO BOSS");
             Console.WriteLine(theBoss.TheString() + "\n");
         
+        }
+        static void BuilderDemo1()
+        {
+            RobotBuilder oldStyleRobot = new OldRobotBuilder();
+
+            RobotEngineer robotEngineer = new RobotEngineer(oldStyleRobot);
+
+            robotEngineer.MakeRobot();
+
+            Robot firstRobot = robotEngineer.GetRobot();
+
+            Console.WriteLine("Robot Built");
+            Console.WriteLine("Robot Head Type: " + firstRobot.GetRobotHead());
+            Console.WriteLine("Robot Torso Type: " + firstRobot.GetRobotTorso());
+            Console.WriteLine("Robot Arm Type: " + firstRobot.GetRobotArms());
+            Console.WriteLine("Robot Leg Type: " + firstRobot.GetRobotLegs());
         }
     }
 }
