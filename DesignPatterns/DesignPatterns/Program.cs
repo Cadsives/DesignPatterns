@@ -4,6 +4,8 @@ using DesignPatterns.Patterns.Behavioural.Strategy.Strategy1;
 using DesignPatterns.Patterns.Creational.Factory.Factory1;
 using DesignPatterns.Patterns.Creational.Singleton;
 using DesignPatterns.Patterns.Creational.Singleton.Singleton1;
+using DesignPatterns.Patterns.Structural.Decorator.Decorator1;
+using DesignPatterns.Patterns.Structural.Decorator.Decorator2;
 using System;
 
 namespace DesignPatterns
@@ -17,7 +19,9 @@ namespace DesignPatterns
             //SingletonDemo1();
             //SingletonDemo2();
             //FactoryDemo1();
-            CommandDemo1();
+            //CommandDemo1();
+            DecoratorDemo1();
+            //DecoratorDemo2();
             Console.ReadLine();
         }
 
@@ -107,6 +111,23 @@ namespace DesignPatterns
             theWaitress.HaveABreak();
 
             theWaitress.PopIntoKitchen();
+        }
+        static void DecoratorDemo1()
+        {
+            Car myCar = new Fiat500();
+
+            myCar = new SunRoof(myCar);
+            myCar = new GoFasterStripe(myCar);
+
+            Console.WriteLine(myCar.GetDescription() + "  " + myCar.Cost());
+        }
+        static void DecoratorDemo2()
+        {
+            Pizza decoratedPizza = new TomatoSauce(new Mozzarella(new PlainPizza()));
+
+            Console.WriteLine("Ingredients: " + decoratedPizza.GetDescription());
+
+            Console.WriteLine("Price: " + decoratedPizza.GetCost());
         }
     }
 }
