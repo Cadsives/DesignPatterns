@@ -9,6 +9,8 @@ using DesignPatterns.Patterns.Structural.Decorator.Decorator1;
 using DesignPatterns.Patterns.Structural.Decorator.Decorator2;
 using System;
 using DesignPatterns.Patterns.Creational.Builder;
+using DesignPatterns.Patterns.Creational.Prototype.Prototype1;
+using System.Runtime.CompilerServices;
 
 namespace DesignPatterns
 {
@@ -25,7 +27,8 @@ namespace DesignPatterns
             //DecoratorDemo1();
             //DecoratorDemo2();
             //AbstractFactoryDemo1();
-            BuilderDemo1();
+            //BuilderDemo1();
+            PrototypeDemo1();
             Console.ReadLine();
         }
 
@@ -160,5 +163,32 @@ namespace DesignPatterns
             Console.WriteLine("Robot Arm Type: " + firstRobot.GetRobotArms());
             Console.WriteLine("Robot Leg Type: " + firstRobot.GetRobotLegs());
         }
+        static void PrototypeDemo1()
+        {
+            CloneFactory animalMaker = new CloneFactory();
+
+            Sheep sally = new Sheep();
+            Dog gizmo = new Dog();
+
+            Sheep clonedSheep = (Sheep)animalMaker.GetClone(sally);
+            Dog clonedDog = (Dog)animalMaker.GetClone(gizmo);
+
+            Console.WriteLine(sally);
+
+            Console.WriteLine(clonedSheep);
+
+            Console.WriteLine(gizmo);
+
+            Console.WriteLine(clonedDog);
+            
+            Console.WriteLine("Sally Hashcode: " + RuntimeHelpers.GetHashCode(RuntimeHelpers.GetHashCode((sally))));
+
+            Console.WriteLine("Cloned Sally Hashcode: " + RuntimeHelpers.GetHashCode(RuntimeHelpers.GetHashCode((clonedSheep))));
+
+            Console.WriteLine("Sally Hashcode: " + RuntimeHelpers.GetHashCode(RuntimeHelpers.GetHashCode((gizmo))));
+
+            Console.WriteLine("Cloned Sally Hashcode: " + RuntimeHelpers.GetHashCode(RuntimeHelpers.GetHashCode((clonedDog))));
+        }
+        
     }
 }
